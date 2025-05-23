@@ -12,7 +12,6 @@ const App = () => {
   return (
     <>
       <div className="bg-white mx-100 my-10 p-10 rounded-md shadow-md">
-        <NavBar />
         <PageTabs />
         <PagePicker />
         {/* <FlashCard

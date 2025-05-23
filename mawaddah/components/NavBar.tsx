@@ -11,7 +11,7 @@ export const NavBar = () => {
   return (
     <div className="w-auto px-10">
       {' '}
-      <Menubar className="flex justify-between m-10 bg-purple-100">
+      <Menubar className="flex justify-between m-10 bg-white">
         <div>
           <MenubarMenu>
             <MenubarTrigger>mawaddah</MenubarTrigger>
