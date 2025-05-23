@@ -9,15 +9,28 @@ import { LlmAnalytics } from '../pages/LlmAnalytics';
 import { Onboarding } from '../pages/Onboarding';
 import { Pricing } from '../pages/Pricing';
 import { Questions } from '../pages/Questions';
+import { NotFoundPage } from '../pages/NotFoundPage';
 
 const rootEl = document.getElementById('root');
 const router = createBrowserRouter([
-  { path: '/', element: <App /> },
-  { path: '/AboutUs', element: <AboutUs /> },
-  { path: '/LlmAnaltics', element: <LlmAnalytics /> },
-  { path: '/Onboarding', element: <Onboarding /> },
-  { path: '/Pricing', element: <Pricing /> },
-  { path: '/Questions', element: <Questions /> },
+  { path: '/', element: <App />, errorElement: <NotFoundPage /> },
+  { path: '/AboutUs', element: <AboutUs />, errorElement: <NotFoundPage /> },
+  {
+    path: '/LlmAnaltics',
+    element: <LlmAnalytics />,
+    errorElement: <NotFoundPage />,
+  },
+  {
+    path: '/Onboarding',
+    element: <Onboarding />,
+    errorElement: <NotFoundPage />,
+  },
+  { path: '/Pricing', element: <Pricing />, errorElement: <NotFoundPage /> },
+  {
+    path: '/Questions',
+    element: <Questions />,
+    errorElement: <NotFoundPage />,
+  },
 ]);
 
 if (rootEl) {
