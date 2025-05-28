@@ -1,14 +1,26 @@
 import { Label } from '@/components/ui/label';
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
+import React from 'react';
 
 interface Props {
   questionId: number;
 }
 
 export const AnswerRadio = () => {
+  // set state for input change
+  const [selectedValue, setSelectedValue] = React.useState('');
+
+  // what todo with the change
+  const handleValueChange = (value: string) => {
+    setSelectedValue(value);
+    console.log(value);
+  };
+
   return (
     <div className="flex justify-center">
       <RadioGroup
+        onValueChange={handleValueChange}
+        defaultValue={selectedValue}
         className="flex justify-around m-10 gap-10 border-1 rounded-md p-2
         [&:not(:first-child)]:mt-6 w-150 bg-purple-100"
       >

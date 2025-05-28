@@ -1,3 +1,4 @@
+import React from 'react';
 import { AnswerRadio } from '../components/Radio';
 import { CarouselQuestion } from '../components/Carousel';
 import { PageTabs } from '../components/Tabs';
@@ -8,17 +9,13 @@ import { Questions } from '../src/MarriageQuestions';
 import 'tailwindcss';
 
 export const QuestionCards = () => {
+  const [questionState, setQuestionState] = React.useState('');
+
   return (
     <>
       <div className="bg-white mx-100 my-10 p-10 rounded-md shadow-md">
         <PageTabs />
         <PagePicker />
-        {/* <FlashCard
-            id={q.id}
-            questionEng={q.questionEng}
-            questionMy={q.questionMalay}
-            tag={q.questionTag}
-          /> */}
         <CarouselQuestion allData={Questions} />
         <SelectImpact />
         <AnswerRadio />

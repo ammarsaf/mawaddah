@@ -2,38 +2,36 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import 'tailwindcss';
 import './index.css';
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import {
+  createBrowserRouter,
+  RouterProvider,
+  BrowserRouter,
+} from 'react-router-dom';
 import { AboutUs } from '../pages/AboutUs';
 import { Home } from '../pages/Home';
 import { LlmAnalytics } from '../pages/LlmAnalytics';
 import { Onboarding } from '../pages/Onboarding';
+import { Layout } from '../components/Layout';
 import { Pricing } from '../pages/Pricing';
 import { QuestionCards } from '../pages/QuestionCards';
 import { NotFoundPage } from '../pages/NotFoundPage';
-import { NavBar } from '../components/NavBar';
 
 const rootEl = document.getElementById('root');
 const router = createBrowserRouter([
-  { path: '/', element: <Home />, errorElement: <NotFoundPage /> },
-  { path: '/home', element: <Home />, errorElement: <NotFoundPage /> },
   {
-    path: '/questions',
-    element: <QuestionCards />,
+    path: '/',
+    element: <Layout />,
     errorElement: <NotFoundPage />,
+    children: [
+      { path: '', element: <Home /> },
+      { path: 'home', element: <Home /> },
+      { path: 'questions', element: <QuestionCards /> },
+      { path: 'about-us', element: <AboutUs /> },
+      { path: 'llmAnalytics', element: <LlmAnalytics /> },
+      { path: 'onboarding', element: <Onboarding /> },
+      { path: 'pricing', element: <Pricing /> },
+    ],
   },
-
-  { path: '/aboutus', element: <AboutUs />, errorElement: <NotFoundPage /> },
-  {
-    path: '/llmAnalytics',
-    element: <LlmAnalytics />,
-    errorElement: <NotFoundPage />,
-  },
-  {
-    path: '/onboarding',
-    element: <Onboarding />,
-    errorElement: <NotFoundPage />,
-  },
-  { path: '/pricing', element: <Pricing />, errorElement: <NotFoundPage /> },
 ]);
 
 if (rootEl) {
@@ -41,7 +39,6 @@ if (rootEl) {
   root.render(
     <>
       <React.StrictMode>
-        <NavBar />
         <RouterProvider router={router} />
       </React.StrictMode>
       ,

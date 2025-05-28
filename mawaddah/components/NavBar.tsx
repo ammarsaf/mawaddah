@@ -6,8 +6,17 @@ import {
   MenubarSeparator,
   MenubarTrigger,
 } from '@/components/ui/menubar';
+import { NavLink, useNavigate } from 'react-router-dom';
 
 export const NavBar = () => {
+  const navigate = useNavigate();
+
+  const navigateClickTo = (page: string) => {
+    navigate(page);
+  };
+  const navigateClickToUrl = (url: string) => {
+    window.open(url, '_blank');
+  };
   return (
     <div className="w-auto px-10">
       {' '}
@@ -16,8 +25,18 @@ export const NavBar = () => {
           <MenubarMenu>
             <MenubarTrigger>mawaddah</MenubarTrigger>
             <MenubarContent>
-              <MenubarItem>What is Mawadddah?</MenubarItem>
-              <MenubarItem>100 Crucial Questions</MenubarItem>
+              <MenubarItem onClick={() => navigateClickTo('/about-us')}>
+                What is Mawadddah?
+              </MenubarItem>
+              <MenubarItem
+                onClick={() =>
+                  navigateClickToUrl(
+                    'https://www.rahmaa.org/resources/100-questions-by-imam-magid/',
+                  )
+                }
+              >
+                100 Crucial Questions
+              </MenubarItem>
               <MenubarItem>Inspiration</MenubarItem>
               <MenubarSeparator />
               <MenubarItem>Share</MenubarItem>
@@ -34,7 +53,9 @@ export const NavBar = () => {
             </MenubarContent>
           </MenubarMenu>
           <MenubarMenu>
-            <MenubarTrigger>About Us</MenubarTrigger>
+            <MenubarTrigger onClick={() => navigateClickTo('/about-us')}>
+              About Us
+            </MenubarTrigger>
           </MenubarMenu>
           <MenubarMenu>
             <MenubarTrigger>Login</MenubarTrigger>
