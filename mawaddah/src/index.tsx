@@ -2,11 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import 'tailwindcss';
 import './index.css';
-import {
-  createBrowserRouter,
-  RouterProvider,
-  BrowserRouter,
-} from 'react-router-dom';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { AboutUs } from '../pages/AboutUs';
 import { Home } from '../pages/Home';
 import { LlmAnalytics } from '../pages/LlmAnalytics';

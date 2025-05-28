@@ -2,10 +2,6 @@ import { Label } from '@/components/ui/label';
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 import React from 'react';
 
-interface Props {
-  questionId: number;
-}
-
 export const AnswerRadio = () => {
   // set state for input change
   const [selectedValue, setSelectedValue] = React.useState('');
